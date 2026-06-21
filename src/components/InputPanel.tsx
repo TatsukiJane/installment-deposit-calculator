@@ -88,7 +88,7 @@ export function InputPanel({ form, errors, onChange }: InputPanelProps) {
         </div>
 
         <div className="flex flex-col gap-2">
-          <Label htmlFor="rate">Ставка депозита, % годовых</Label>
+          <Label htmlFor="rate">Номинальная ставка, % годовых</Label>
           <Input
             id="rate"
             inputMode="decimal"
@@ -114,18 +114,34 @@ export function InputPanel({ form, errors, onChange }: InputPanelProps) {
           />
         </div>
 
-        <div className="flex flex-col gap-2">
-          <Label htmlFor="tax">Налог на доход, %</Label>
-          <Input
-            id="tax"
-            inputMode="decimal"
-            placeholder="10"
-            value={form.taxPct}
-            aria-invalid={Boolean(errors.taxPct)}
-            onChange={(e) => onChange({ taxPct: e.target.value })}
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex flex-col">
+            <Label htmlFor="tax-enabled">Налог на доход</Label>
+            <span className="text-muted-foreground text-xs">
+              Для физлиц в РК необязателен
+            </span>
+          </div>
+          <Switch
+            id="tax-enabled"
+            checked={form.taxEnabled}
+            onCheckedChange={(checked) => onChange({ taxEnabled: checked })}
           />
-          <FieldError message={errors.taxPct} />
         </div>
+
+        {form.taxEnabled && (
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="tax">Ставка налога, %</Label>
+            <Input
+              id="tax"
+              inputMode="decimal"
+              placeholder="10"
+              value={form.taxPct}
+              aria-invalid={Boolean(errors.taxPct)}
+              onChange={(e) => onChange({ taxPct: e.target.value })}
+            />
+            <FieldError message={errors.taxPct} />
+          </div>
+        )}
       </CardContent>
     </Card>
   )

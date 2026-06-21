@@ -13,6 +13,8 @@ export interface FormState {
   isCustomTerm: boolean
   annualRatePct: string
   capitalization: boolean
+  /** Применять ли налог на доход (необязательно, для РК физлиц не обязателен). */
+  taxEnabled: boolean
   taxPct: string
 }
 
@@ -25,6 +27,7 @@ export const defaultForm: FormState = {
   isCustomTerm: false,
   annualRatePct: "16",
   capitalization: true,
+  taxEnabled: false,
   taxPct: "10",
 }
 
@@ -36,6 +39,6 @@ export function toCalcInput(form: FormState): CalcInput {
     termMonths: Math.trunc(parseDecimal(form.term)),
     annualRatePct: parseDecimal(form.annualRatePct),
     capitalization: form.capitalization,
-    taxPct: form.taxPct.trim() === "" ? 0 : parseDecimal(form.taxPct),
+    taxPct: form.taxEnabled ? (form.taxPct.trim() === "" ? 0 : parseDecimal(form.taxPct)) : 0,
   }
 }
