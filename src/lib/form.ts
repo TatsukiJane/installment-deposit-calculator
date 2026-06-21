@@ -21,7 +21,7 @@ export interface FormState {
 export const TERM_PRESETS: TermPreset[] = [3, 4, 6, 12, 24]
 
 export const defaultForm: FormState = {
-  purchasePrice: "",
+  purchasePrice: "1000",
   bonus: "0",
   term: "12",
   isCustomTerm: false,
