@@ -18,16 +18,16 @@ import { type CalcResult } from "@/lib/calc"
 import { formatTenge } from "@/lib/format"
 
 export function MonthlyTable({ result }: { result: CalcResult }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   return (
     <Card>
       <Collapsible open={open} onOpenChange={setOpen}>
-        <CollapsibleTrigger className="w-full">
-          <CardHeader className="flex-row items-center justify-between">
+        <CollapsibleTrigger asChild>
+          <CardHeader className="flex-row cursor-pointer items-center justify-between select-none">
             <CardTitle>Помесячная разбивка</CardTitle>
             <RiArrowDownSLine
-              className={`text-muted-foreground size-5 transition-transform ${open ? "rotate-180" : ""}`}
+              className={`text-muted-foreground size-5 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
             />
           </CardHeader>
         </CollapsibleTrigger>
