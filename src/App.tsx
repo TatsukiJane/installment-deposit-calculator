@@ -33,7 +33,7 @@ export function App() {
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:py-14">
         <header className="mb-8">
           <h1 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
-            Что выгоднее, купить сразу или оформить рассрочку и получать проценты с калькулятора?
+            Купить сразу или оформить рассрочку и получать проценты с депозита?
           </h1>
           <p className="text-muted-foreground mt-2 max-w-2xl">
             Считает доход с депозита, если не платить за покупку сразу, а положить сумму на
