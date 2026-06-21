@@ -2,7 +2,7 @@
 import { type CalcInput } from "./calc"
 import { parseDecimal } from "./format"
 
-export type TermPreset = 3 | 6 | 12 | 24
+export type TermPreset = 3 | 4 | 6 | 12 | 24
 
 export interface FormState {
   purchasePrice: string
@@ -18,7 +18,7 @@ export interface FormState {
   taxPct: string
 }
 
-export const TERM_PRESETS: TermPreset[] = [3, 6, 12, 24]
+export const TERM_PRESETS: TermPreset[] = [3, 4, 6, 12, 24]
 
 export const defaultForm: FormState = {
   purchasePrice: "",
