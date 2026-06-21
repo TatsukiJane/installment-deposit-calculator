@@ -23,7 +23,7 @@ export function MonthlyTable({ result }: { result: CalcResult }) {
   return (
     <Card>
       <Collapsible open={open} onOpenChange={setOpen}>
-        <CollapsibleTrigger className="flex w-full cursor-pointer select-none items-center justify-between px-6 pt-0 pb-5">
+        <CollapsibleTrigger className="flex w-full cursor-pointer select-none items-center justify-between px-4 pt-0 pb-5">
           <CardTitle>Помесячная разбивка</CardTitle>
           <RiArrowDownSLine
             className={`text-muted-foreground size-5 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
