@@ -30,10 +30,10 @@ export function BalanceChart({ result }: { result: CalcResult }) {
         <CardTitle>Остаток депозита по месяцам</CardTitle>
         <CardDescription>Как убывает баланс, пока гасится рассрочка</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-0 pb-4">
         <div className="h-64 w-full">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={data} margin={{ top: 8, right: 8, bottom: 8, left: 8 }}>
+            <LineChart data={data} margin={{ top: 4, right: 16, bottom: 0, left: 16 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
               <XAxis
                 dataKey="month"

@@ -5,7 +5,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardTitle } from "@/components/ui/card"
 import {
   Table,
   TableBody,
@@ -23,13 +23,11 @@ export function MonthlyTable({ result }: { result: CalcResult }) {
   return (
     <Card>
       <Collapsible open={open} onOpenChange={setOpen}>
-        <CollapsibleTrigger asChild>
-          <CardHeader className="flex-row cursor-pointer items-center justify-between select-none">
-            <CardTitle>Помесячная разбивка</CardTitle>
-            <RiArrowDownSLine
-              className={`text-muted-foreground size-5 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
-            />
-          </CardHeader>
+        <CollapsibleTrigger className="flex w-full cursor-pointer select-none items-center justify-between px-6 pt-0 pb-5">
+          <CardTitle>Помесячная разбивка</CardTitle>
+          <RiArrowDownSLine
+            className={`text-muted-foreground size-5 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+          />
         </CollapsibleTrigger>
         <CollapsibleContent>
           <CardContent>

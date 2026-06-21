@@ -1,4 +1,4 @@
-import { RiArrowUpLine, RiWalletLine, RiScales3Line } from "@remixicon/react"
+import { RiArrowUpFill, RiWalletFill, RiScales3Fill } from "@remixicon/react"
 import { Card, CardContent } from "@/components/ui/card"
 import { type CalcResult } from "@/lib/calc"
 import { formatTenge } from "@/lib/format"
@@ -9,8 +9,8 @@ export function VerdictCard({ result }: { result: CalcResult }) {
   if (winner === "tie") {
     return (
       <Card>
-        <CardContent className="flex items-center gap-4 py-8">
-          <RiScales3Line className="text-muted-foreground size-10 shrink-0" />
+        <CardContent className="flex items-start gap-4 p-4">
+          <RiScales3Fill className="text-muted-foreground size-10 shrink-0 mt-0.5" />
           <div>
             <p className="text-muted-foreground text-sm">Вердикт</p>
             <p className="font-heading text-2xl font-semibold">Варианты равноценны</p>
@@ -22,12 +22,12 @@ export function VerdictCard({ result }: { result: CalcResult }) {
 
   const isDeposit = winner === "deposit"
   const title = isDeposit ? "Выгоднее депозит" : "Выгоднее оплатить сразу"
-  const Icon = isDeposit ? RiWalletLine : RiArrowUpLine
+  const Icon = isDeposit ? RiWalletFill : RiArrowUpFill
 
   return (
     <Card>
-      <CardContent className="flex items-center gap-4 py-8">
-        <span className="bg-primary/10 text-primary flex size-12 shrink-0 items-center justify-center rounded-full">
+      <CardContent className="flex items-start gap-4 p-4">
+        <span className="bg-primary/10 text-primary mt-0.5 flex size-12 shrink-0 items-center justify-center rounded-full">
           <Icon className="size-6" />
         </span>
         <div className="min-w-0">
