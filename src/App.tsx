@@ -45,11 +45,11 @@ export function App() {
         <div className="grid gap-6 lg:grid-cols-[360px_1fr] lg:items-start">
           <InputPanel form={form} errors={errors} onChange={onChange} />
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 min-w-0">
             {result ? (
               <>
                 <VerdictCard result={result} />
-                <ComparisonTable result={result} />
+                <ComparisonTable result={result} taxEnabled={form.taxEnabled} />
                 <BalanceChart result={result} />
                 <MonthlyTable result={result} />
               </>

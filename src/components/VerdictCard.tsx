@@ -9,7 +9,7 @@ export function VerdictCard({ result }: { result: CalcResult }) {
   if (winner === "tie") {
     return (
       <Card>
-        <CardContent className="flex items-start gap-4 p-4">
+        <CardContent className="flex items-start gap-4 px-4 py-1">
           <RiScales3Fill className="text-muted-foreground size-10 shrink-0 mt-0.5" />
           <div>
             <p className="text-muted-foreground text-sm">Вердикт</p>
@@ -26,7 +26,7 @@ export function VerdictCard({ result }: { result: CalcResult }) {
 
   return (
     <Card>
-      <CardContent className="flex items-start gap-4 p-4">
+      <CardContent className="flex items-start gap-4 px-4 py-1">
         <span className="bg-primary/10 text-primary mt-0.5 flex size-12 shrink-0 items-center justify-center rounded-full">
           <Icon className="size-6" />
         </span>

@@ -25,8 +25,8 @@ function Row({
       <span
         className={
           highlight
-            ? "text-primary text-lg font-semibold tabular-nums"
-            : "font-medium tabular-nums"
+            ? "text-primary shrink-0 whitespace-nowrap text-lg font-semibold tabular-nums"
+            : "shrink-0 whitespace-nowrap font-medium tabular-nums"
         }
       >
         {value}
@@ -35,7 +35,7 @@ function Row({
   )
 }
 
-export function ComparisonTable({ result }: { result: CalcResult }) {
+export function ComparisonTable({ result, taxEnabled }: { result: CalcResult; taxEnabled: boolean }) {
   const { totalInterestGross, tax, netDepositIncome, bonus } = result
 
   return (
@@ -46,8 +46,12 @@ export function ComparisonTable({ result }: { result: CalcResult }) {
       </CardHeader>
       <CardContent>
         <div className="divide-border divide-y">
-          <Row label="Доход депозита до налога" value={formatTenge(totalInterestGross)} muted />
-          <Row label="Налог" value={`− ${formatTenge(tax)}`} muted />
+          {taxEnabled && (
+            <>
+              <Row label="Доход депозита до налога" value={formatTenge(totalInterestGross)} muted />
+              <Row label="Налог" value={`− ${formatTenge(tax)}`} muted />
+            </>
+          )}
           <Row label="Чистый доход депозита" value={formatTenge(netDepositIncome)} highlight />
           <Row label="Бонус за оплату сразу" value={formatTenge(bonus)} />
         </div>
