@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#2d2d2d"/>
+  <!-- Верхняя горизонтальная полоса -->
+  <rect x="116" y="108" width="280" height="44" rx="22" fill="#b3a1fd"/>
+  <!-- Средняя горизонтальная полоса -->
+  <rect x="116" y="212" width="280" height="44" rx="22" fill="#b3a1fd"/>
+  <!-- Вертикальный стержень -->
+  <rect x="234" y="108" width="44" height="296" fill="#b3a1fd"/>
+</svg>

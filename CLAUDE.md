@@ -170,6 +170,33 @@ src/
 
 `useState(true)` — таблица раскрыта сразу, пользователь видит данные без лишнего клика.
 
+## PWA (Progressive Web App)
+
+Сайт поддерживает установку как приложение на Android и iOS.
+
+**Стек:** `vite-plugin-pwa` (Workbox, autoUpdate) + `@vite-pwa/assets-generator` (sharp).
+
+**Иконка-источник:** `public/icon.svg` — геометрический знак ₸ (тенге), лавандовый `#b3a1fd` на
+тёмном фоне `#2d2d2d`. Без шрифтов (resvg не использует системные шрифты).
+
+**Сгенерированные PNG** (коммитятся в репозиторий, CI не нужно менять):
+```bash
+pnpm generate-icons   # → public/pwa-64x64.png, pwa-192x192.png, pwa-512x512.png,
+                      #     maskable-icon-512x512.png, apple-touch-icon-180x180.png, favicon.ico
+```
+Запускать при изменении `public/icon.svg`.
+
+**`scope: "./"` и `start_url: "./"`** в манифесте — обязательно для GitHub Pages subpath
+(`username.github.io/repo/`). Значение `"./"` резолвится относительно URL манифеста и
+автоматически указывает на правильный путь при любом имени репозитория.
+
+**`workbox.globPatterns` включает `woff2`** — `@fontsource-variable/*` кладёт шрифты в
+`dist/assets/*.woff2`, без этого шрифты не попадут в precache и офлайн-режим сломается.
+
+**Тестирование:** PWA не работает в `pnpm dev` (SW отключён для совместимости с HMR).
+Тестировать через `pnpm preview` или на GitHub Pages.
+Chrome DevTools → Application → Manifest + Service Workers.
+
 ## Деплой
 
 GitHub Pages через Actions ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)):
